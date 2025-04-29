@@ -1,28 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
-    <!-- Session Configuration - Keep this -->
-    <servlet>
-        <servlet-name>ImageServlet</servlet-name>
-        <servlet-class>Servlet.ImageServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>ImageServlet</servlet-name>
-        <url-pattern>/ImageServlet</url-pattern>
-    </servlet-mapping>
+
+    <!-- Session Configuration -->
     <session-config>
         <session-timeout>
             30
         </session-timeout>
     </session-config>
-    <!-- Welcome File List - Keep or Add this -->
-    <!-- This tells the server what page to show for "/" -->
-    <!-- You can point to the HomeServlet path or index.jsp -->
+
+    <!-- Welcome File List -->
+    <!-- Server tries these in order for the root URL "/" -->
     <welcome-file-list>
-        <welcome-file>home</welcome-file>
-        <!-- If HomeServlet mapped to /home -->
+        <welcome-file>home</welcome-file> <!-- Matches @WebServlet mapping for HomeServlet -->
         <welcome-file>index.jsp</welcome-file>
         <welcome-file>index.html</welcome-file>
-        <!-- Add other defaults if needed -->
     </welcome-file-list>
-    <!-- REMOVE ALL <servlet> and <servlet-mapping> sections -->
+
+    <!-- Ensure NO <servlet> or <servlet-mapping> elements are present -->
+    <!-- All servlet registration/mapping is done via @WebServlet annotations -->
+
 </web-app>
